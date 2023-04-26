@@ -13,4 +13,8 @@ mean(2:6)
 library(tidyverse)
 
 # This will be used for testing out Git
+
 # Writing a different sentence
+
+# my changes
+
