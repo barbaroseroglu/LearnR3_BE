@@ -66,3 +66,81 @@ Cute kitten in @fig-kitten-attack!
 
 ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height= "50%"}
 
+
+## Visualizing Data
+```{r}
+# Create histogram for BMI
+ggplot(nhanes_small, aes(x = bmi)) +
+  geom_histogram()
+```
+
+
+```{r}
+# Create histogram for BMI
+ggplot(nhanes_small, aes(x = bmi)) +
+  geom_histogram(na.rm = TRUE)
+```
+
+```{r}
+nhanes_small %>%
+  filter(bmi <= 60) %>%
+  ggplot(aes(x = bmi)) +
+  geom_histogram(na.rm = TRUE)
+```
+
+
+
+```{r}
+#| fig-cap: "Distribution of BMI"
+#| label: fig-bmi-histo
+
+nhanes_small %>%
+  filter(bmi <= 60) %>%
+  ggplot(aes(x = bmi)) +
+  geom_histogram(na.rm = TRUE)
+```
+
+```{r}
+# Create count barplot for education
+ggplot(nhanes_small, aes(x = education)) +
+  geom_bar()
+```
+
+```{r}
+# Create count barplot for diabetes status
+ggplot(nhanes_small, aes(x = diabetes)) +
+  geom_bar()
+```
+
+```{r}
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
+  ggplot(aes(x = diabetes)) +
+  geom_bar()
+```
+
+```{r}
+nhanes_small %>%
+  filter(!is.na(education)) %>%
+  ggplot(aes(x = education)) +
+  geom_bar()
+```
+
+```{r}
+#| label: fig-diabetes-education
+#| fig-cap: "Counts of diabetes and education in NHANES"
+#| fig-subcap:
+#|   - "Number of those with or without diabetes."
+#|   - "Number of those with different educational status."
+#| layout-ncol: 2
+
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
+  ggplot(aes(x = diabetes)) +
+  geom_bar()
+
+nhanes_small %>%
+  filter(!is.na(education)) %>%
+  ggplot(aes(x = education)) +
+  geom_bar()
+```
