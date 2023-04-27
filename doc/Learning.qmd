@@ -61,3 +61,8 @@ nhanes_small %>%
   ) %>%
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
+
+Cute kitten in @fig-kitten-attack!
+
+![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height= "50%"}
+
